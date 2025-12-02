@@ -21,8 +21,8 @@ COPY *.html .
 COPY *.css .
 COPY *.js .
 COPY *.json .
-COPY *.png . 2>/dev/null || true
-COPY *.svg . 2>/dev/null || true
+COPY *.png .
+COPY *.svg .
 
 # Create non-root user for security
 RUN useradd -m -u 1000 appuser && \
