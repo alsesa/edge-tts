@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edge TTS - Text to Speech PWA using Microsoft Edge's online TTS service">
+    <meta name="theme-color" content="#2563eb">
+    <title>Edge TTS - Text to Speech</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎙️ Edge TTS</h1>
+            <p class="subtitle">Text to Speech Converter</p>
+        </header>
+
+        <main>
+            <!-- Text Input Section -->
+            <section class="card">
+                <h2>Enter Text</h2>
+                <textarea
+                    id="textInput"
+                    placeholder="Enter text to convert to speech..."
+                    rows="6"
+                    maxlength="5000"
+                ></textarea>
+                <div class="char-count">
+                    <span id="charCount">0</span> / 5000 characters
+                </div>
+            </section>
+
+            <!-- Voice Selection Section -->
+            <section class="card">
+                <h2>Voice Settings</h2>
+
+                <div class="form-group">
+                    <label for="languageSelect">Language</label>
+                    <select id="languageSelect">
+                        <option value="">Loading languages...</option>
+                    </select>
+                </div>
+
+                <div class="filters">
+                    <div class="form-group">
+                        <label for="genderFilter">Gender</label>
+                        <select id="genderFilter">
+                            <option value="">All</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="voiceSelect">Voice</label>
+                        <select id="voiceSelect">
+                            <option value="">Select language first</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="test-voice-section">
+                    <button id="testVoiceBtn" class="btn btn-secondary" disabled>
+                        <span class="btn-icon">🎧</span>
+                        Test Voice
+                    </button>
+                    <p class="test-voice-hint">Select a voice to test it with a sample sentence</p>
+                </div>
+
+                <!-- Prosody Controls -->
+                <div class="prosody-controls">
+                    <div class="form-group">
+                        <label for="rateSlider">
+                            Speed: <span id="rateValue">+0%</span>
+                        </label>
+                        <input
+                            type="range"
+                            id="rateSlider"
+                            min="-100"
+                            max="100"
+                            value="0"
+                            step="10"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volumeSlider">
+                            Volume: <span id="volumeValue">+0%</span>
+                        </label>
+                        <input
+                            type="range"
+                            id="volumeSlider"
+                            min="-100"
+                            max="100"
+                            value="0"
+                            step="10"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pitchSlider">
+                            Pitch: <span id="pitchValue">+0Hz</span>
+                        </label>
+                        <input
+                            type="range"
+                            id="pitchSlider"
+                            min="-500"
+                            max="500"
+                            value="0"
+                            step="50"
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Actions Section -->
+            <section class="card">
+                <div class="actions">
+                    <button id="generateBtn" class="btn btn-primary">
+                        <span class="btn-icon">🎵</span>
+                        Generate Speech
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <span class="btn-icon">🗑️</span>
+                        Clear
+                    </button>
+                </div>
+
+                <div id="progressBar" class="progress-bar" style="display: none;">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <div id="statusMessage" class="status-message"></div>
+            </section>
+
+            <!-- Audio Player Section -->
+            <section id="audioSection" class="card" style="display: none;">
+                <h2>Audio Output</h2>
+                <audio id="audioPlayer" controls></audio>
+                <div class="audio-actions">
+                    <button id="downloadBtn" class="btn btn-primary">
+                        <span class="btn-icon">⬇️</span>
+                        Download MP3
+                    </button>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="card">
+                <h2>Recent Generations</h2>
+                <div id="historyList" class="history-list">
+                    <p class="empty-state">No recent generations yet</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Powered by <a href="https://github.com/rany2/edge-tts" target="_blank">edge-tts</a>
+                | <span id="installPrompt" style="display: none;">
+                    <button id="installBtn" class="btn-link">Install App</button>
+                </span>
+            </p>
+            <p class="status-indicator">
+                <span id="onlineStatus" class="online">● Online</span>
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

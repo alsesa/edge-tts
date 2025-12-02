@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+QUICKSTART.md
+*.md
+
+# Build scripts
+build.sh
+deploy.sh
+create_icons.py
+create_icons.sh
+
+# Test files
+test_*.py
+*_test.py
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.mp3
+*.wav
+*.srt
