@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="International Phonetic Alphabet — click any symbol to hear it pronounced">
+    <meta name="theme-color" content="#2563eb">
+    <title>国际音标 · Phonetics — Edge TTS</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="phonetics.css">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📖 国际音标</h1>
+            <p class="subtitle">International Phonetic Alphabet · click a symbol to hear it</p>
+            <p class="page-nav"><a href="index.html">← Back to TTS</a></p>
+        </header>
+
+        <main>
+            <section class="card phonetics-card">
+                <div class="tab-strip" role="tablist" aria-label="Phoneme group">
+                    <button class="tab" role="tab" data-tab="vowels" aria-selected="true">元音 Vowels</button>
+                    <button class="tab" role="tab" data-tab="consonants" aria-selected="false">辅音 Consonants</button>
+                </div>
+
+                <div class="tab-panel" data-panel="vowels">
+                    <div class="subtab-strip" role="tablist" aria-label="Vowel type">
+                        <button class="subtab is-active" data-subtab="monophthongs">单元音 Monophthongs</button>
+                        <button class="subtab" data-subtab="diphthongs">双元音 Diphthongs</button>
+                    </div>
+                    <div class="subtab-panel" data-subpanel="monophthongs"></div>
+                    <div class="subtab-panel is-hidden" data-subpanel="diphthongs"></div>
+                </div>
+
+                <div class="tab-panel is-hidden" data-panel="consonants">
+                    <div class="subtab-strip" role="tablist" aria-label="Consonant type">
+                        <button class="subtab is-active" data-subtab="voiceless">清辅音 Voiceless</button>
+                        <button class="subtab" data-subtab="voiced">浊辅音 Voiced</button>
+                    </div>
+                    <div class="subtab-panel" data-subpanel="voiceless"></div>
+                    <div class="subtab-panel is-hidden" data-subpanel="voiced"></div>
+                </div>
+
+                <div id="phoneticsStatus" class="status-message" role="status" aria-live="polite"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Powered by <a href="https://github.com/rany2/edge-tts" target="_blank" rel="noopener">edge-tts</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="phonetics.js"></script>
+</body>
+</html>

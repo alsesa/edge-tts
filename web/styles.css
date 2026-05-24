@@ -50,6 +50,20 @@ header h1 {
     font-size: 1.1rem;
 }
 
+.page-nav {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.page-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.page-nav a:hover {
+    text-decoration: underline;
+}
+
 /* Card */
 .card {
     background: var(--card-background);

@@ -1,10 +1,13 @@
 // Service Worker for Edge TTS PWA
-const CACHE_NAME = 'edge-tts-v1';
+const CACHE_NAME = 'edge-tts-v3';
 const urlsToCache = [
     '/',
     '/index.html',
     '/styles.css',
     '/app.js',
+    '/phonetics.html',
+    '/phonetics.css',
+    '/phonetics.js',
     '/manifest.json',
     '/icon-192.png',
     '/icon-512.png'
