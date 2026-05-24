@@ -9,7 +9,7 @@ echo ""
 
 # Configuration - Edit these values for your server
 REMOTE_USER="${REMOTE_USER:-root}"
-REMOTE_HOST="${REMOTE_HOST:-your-server.com}"
+REMOTE_HOST="${REMOTE_HOST:-tts.10000h.de}"
 REMOTE_PATH="${REMOTE_PATH:-/opt/edge-tts}"
 IMAGE_NAME="edge-tts-web"
 IMAGE_TAG="${1:-latest}"
