@@ -18,6 +18,7 @@ COPY *.js .
 COPY *.json .
 COPY *.png .
 COPY *.svg .
+COPY phonetics-audio/ ./phonetics-audio/
 
 # Create non-root user for security
 RUN useradd -m -u 1000 appuser && \
